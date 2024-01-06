@@ -1,0 +1,28 @@
+{% extends 'base_voice.html' %}
+
+{% block title %}
+Mocker
+{% endblock %}
+{% block body %}
+<div class="container mt-5">
+    <style>
+     h3 {
+        color: #89AC76;
+     }
+    </style>
+    <h3>Готовые моки</h3>
+    {% if get_mocks|length > 0 %}
+        {% for i in get_mocks %}
+        <div class="alert alert-primary" role="alert">
+            <h5>{{ i.q }}</h5>
+            <p>Описание: {{ i.description }}</p>
+            <p>Дата добавления: {{ i.last_modified.date()}} || {{ i.last_modified.time() }}</p>
+            <a href="/{{ i.id }}" type="button" class="btn btn-success">Подробнее</a>
+            <a href="/{{ i.id }}/update" type="button" class="btn btn-warning">Редактировать</a>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>Пока ничего не добавлено</p>
+    {% endif %}
+</div>
+{% endblock %}

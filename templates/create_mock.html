@@ -1,0 +1,22 @@
+{% extends 'base_voice.html' %}
+
+{% block title %}
+Mocker
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <style>
+     h3 {
+        color: #89AC76;
+     }
+    </style>
+    <h3>Добавить новый mock</h3>
+    <form action="/create_mock" method="post">
+        <input type="text" name="q" id="q" class="form-control" placeholder="Введите текстовый запрос"><br>
+        <textarea name="response" id="response" style="height: 300px;" class="form-control" placeholder="Тело ответа, которое заберет скилсервер в формате json"></textarea><br>
+        <textarea name="description" id="description" style="width: 600px; height: 50px;" class="form-control" placeholder="Описание (обязательное поле)"></textarea><br>
+        <input type="submit" class="btn btn-success" value="Создать mock">
+    </form>
+</div>
+{% endblock %}

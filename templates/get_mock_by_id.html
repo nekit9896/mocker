@@ -1,0 +1,22 @@
+{% extends 'base_voice.html' %}
+
+{% block title %}
+Mocker
+{% endblock %}
+{% block body %}
+<div class="container mt-5">
+    <style>
+     h3 {
+        color: #89AC76;
+     }
+    </style>
+    <h3>id: {{ get_mock_by_id.id }}</h3>
+    <div class="alert alert-primary" role="alert">
+        <h5>{{ get_mock_by_id.q }}</h5>
+        <p>Описание: {{ get_mock_by_id.description }}</p>
+        <p>{{ get_mock_by_id.response }}</p>
+        <a href="/{{ get_mock_by_id.id }}/del" type="button" class="btn btn-danger">Удалить</a>
+        <a href="/{{ get_mock_by_id.id }}/update" type="button" class="btn btn-warning">Редактировать</a>
+    </div>
+</div>
+{% endblock %}
